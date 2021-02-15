@@ -4,4 +4,4 @@
 
 1. SimpleSelenideTest - Чистый Selenide тест с подключенным SelenideLogger
 2. LambdaStepsTest - Лямбда шаги через step (name, () -> {})
-3. AnnotationsTest - Шаги с аннотацией @Step
+3. MethodStepsTest - Шаги с аннотацией @Step

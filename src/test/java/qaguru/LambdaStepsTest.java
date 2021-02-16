@@ -1,4 +1,4 @@
-package allure;
+package qaguru;
 
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.*;
@@ -37,7 +37,7 @@ public class LambdaStepsTest {
         parameter("Repository", REPOSITORY);
         parameter("Issue name", ISSUE_NAME);
 
-        SelenideLogger.addListener("allure", new AllureSelenide());
+        SelenideLogger.addListener("qaguru", new AllureSelenide());
 
         step("Открыть главную страницу", () -> {
             open(BASE_URL);

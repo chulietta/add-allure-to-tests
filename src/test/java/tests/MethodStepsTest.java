@@ -1,4 +1,4 @@
-package qaguru;
+package tests;
 
 import baseSteps.BaseSteps;
 import io.qameta.allure.*;

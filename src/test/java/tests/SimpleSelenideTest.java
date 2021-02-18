@@ -1,4 +1,4 @@
-package qaguru;
+package tests;
 
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.*;
@@ -31,7 +31,7 @@ public class SimpleSelenideTest {
     @DisplayName("Поиск Issue по названию в репозитории")
 
     public void searchIssueByName() {
-        SelenideLogger.addListener("qaguru", new AllureSelenide());
+        SelenideLogger.addListener("allure", new AllureSelenide());
 
         open(BASE_URL);
         $(".header-search-input").setValue(REPOSITORY).pressEnter();

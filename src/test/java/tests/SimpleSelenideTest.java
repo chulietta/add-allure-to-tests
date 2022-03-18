@@ -9,10 +9,10 @@ import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
-import static com.codeborne.selenide.Condition.visible;
 
 public class SimpleSelenideTest {
 
@@ -28,7 +28,7 @@ public class SimpleSelenideTest {
 
     @Feature("Issues")
     @Story("Поск Issue")
-    @DisplayName("Поиск Issue по названию в репозитории")
+    @DisplayName("Поиск Issue по названию в репозитории (чистый селенид с подключенным SelenideLogger)")
 
     public void searchIssueByName() {
         SelenideLogger.addListener("allure", new AllureSelenide());
@@ -36,7 +36,7 @@ public class SimpleSelenideTest {
         open(BASE_URL);
         $(".header-search-input").setValue(REPOSITORY).pressEnter();
         $(By.linkText(REPOSITORY)).click();
-        $(withText("Issues")).click();
+        $("#issues-tab").click();
         $(withText(ISSUE_NAME)).shouldBe(visible);
     }
 }

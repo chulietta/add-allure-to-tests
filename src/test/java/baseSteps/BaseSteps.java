@@ -18,7 +18,7 @@ public class BaseSteps {
     }
 
     @Step("Найти репозиторий {repository}")
-    public void findRepositiry(final String repository) {
+    public void findRepository(final String repository) {
         $(".header-search-input").setValue(repository).pressEnter();
     }
 
@@ -29,7 +29,7 @@ public class BaseSteps {
 
     @Step("Перейти в раздел Issues")
     public void gotoIssues() {
-        $(withText("Issues")).click();
+        $("#issues-tab").click();
     }
 
     @Step("Найти Issue с именем {name}")

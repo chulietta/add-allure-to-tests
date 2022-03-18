@@ -31,28 +31,22 @@ public class LambdaStepsTest {
 
     @Feature("Issues")
     @Story("Поск Issue")
-    @DisplayName("Поиск Issue по названию в репозитории")
+    @DisplayName("Поиск Issue по названию в репозитории (лямбда степы)")
 
-    public void searchIsseuByname() {
+    public void searchIssueByName() {
         parameter("Repository", REPOSITORY);
         parameter("Issue name", ISSUE_NAME);
 
         SelenideLogger.addListener("allure", new AllureSelenide());
 
-        step("Открыть главную страницу", () -> {
-            open(BASE_URL);
-        });
-        step("Найти репозиторий " + REPOSITORY, () -> {
-            $(".header-search-input").setValue(REPOSITORY).pressEnter();
-        });
-        step("Перейти в репозиторий " + REPOSITORY, () -> {
-            $(By.linkText(REPOSITORY)).click();
-        });
-        step("Перейти в раздел " + ISSUES, () -> {
-            $(withText(ISSUES)).click();
-        });
-        step("Найти Issue с именем " + ISSUE_NAME, () -> {
-            $(withText(ISSUE_NAME)).shouldBe(visible);
-        });
+        step("Открыть главную страницу", () -> open(BASE_URL));
+
+        step("Найти репозиторий " + REPOSITORY, () -> $(".header-search-input").setValue(REPOSITORY).pressEnter());
+
+        step("Перейти в репозиторий " + REPOSITORY, () -> $(By.linkText(REPOSITORY)).click());
+
+        step("Перейти в раздел " + ISSUES, () -> $("#issues-tab").click());
+
+        step("Найти Issue с именем " + ISSUE_NAME, () -> $(withText(ISSUE_NAME)).shouldBe(visible));
     }
 }
